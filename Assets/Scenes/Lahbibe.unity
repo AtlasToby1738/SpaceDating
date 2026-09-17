@@ -606,14 +606,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643d52e00f9fbcd4c867723c70551ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::testLahbibe
-  timer: 5
+  timer: 50
   words:
   - bonjour
   - ciao
   - a demain
   - bonne nuit
   - aurevoir
+  - 'Coucou '
+  - 'Hello '
+  - 'Bonsoir '
+  - 'Bienvenue '
+  - 'Salut '
   text: {fileID: 1262832343}
+  index: 0
 --- !u!224 &1998442473
 RectTransform:
   m_ObjectHideFlags: 0
