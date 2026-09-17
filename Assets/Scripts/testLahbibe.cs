@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Dependencies.Sqlite.SQLite3;
 
 public class testLahbibe : MonoBehaviour
 {
@@ -8,14 +9,23 @@ public class testLahbibe : MonoBehaviour
     [SerializeField] private float timer;
     private float currentTime;
     [SerializeField] private string[] words;
+    [SerializeField] private char[] wordLetters;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TestRayane hiddenWord;
     [SerializeField] private int index = 0;
+    [SerializeField] private int letterIndex = 0;
     private string writtenWord;
     private bool isGameOver = false;
+    private bool canType = true;
+
+    // A suprimier apres les playtest
+    [SerializeField] private Camera cam;
+    [SerializeField] float timeDelay = 1f;
 
     void Start()
     {
         currentTime = timer;
+        SetWord();
     }
 
     void Update()
@@ -34,15 +44,18 @@ public class testLahbibe : MonoBehaviour
             {
                 if (c == '\b')
                 {
-                    if (text.text.Length != 0)
-                    {
-                        text.text = text.text.Substring(0, text.text.Length - 1);
-                        return;
-                    }
+                    Debug.Log("backslash mais dans le vide");
+
+                    //if (text.text.Length != 0)
+                    //{
+                    //    letterIndex--;
+                    //    text.text = text.text.Substring(0, text.text.Length - 1);
+                    //    return;
+                    //}
                 }
                 else if ((c == '\n') || (c == '\r'))
                 {
-                    if (index >= words.Length)
+                    if (index <= words.Length && letterIndex == wordLetters.Length)
                     {
                         Debug.Log(WordValidation());
                         text.text = "";
@@ -50,12 +63,51 @@ public class testLahbibe : MonoBehaviour
                 }
                 else
                 {
-                    text.text += c;
+                    if (c == wordLetters[letterIndex])
+                    {
+                        text.text += c;
+                        letterIndex++;
+                        if (char.IsWhiteSpace(c) == false)
+                        {
+                            hiddenWord.RevealNextLetter();
+                        }
+                    }
+                    //else
+                    //{ 
+                    //    text.text += c;
+                    //    //canType = false;
+                    //    //cam.backgroundColor = Color.red;
+                    //    //foreach(var image in hiddenWord.imageArray)
+                    //    //{
+                    //    //    image.color = Color.red;
+                    //    //}
+
+                    //    //Invoke(nameof(ResetError), timeDelay);
+                        
+                    //}
                 }
             }
         }
     }
-    
+
+    void ResetError()
+    {
+        text.text.Remove(letterIndex);
+        cam.backgroundColor = Color.red;
+        foreach (var image in hiddenWord.imageArray)
+        {
+            image.color = Color.red;
+        }
+        canType = true;
+    }
+
+    private void SetWord()
+    {
+        letterIndex = 0;
+        wordLetters = words[index].ToCharArray();
+        hiddenWord.SetNewWord(words[index]);
+    }
+
     private bool WordValidation()
     {
         // ici on aura besoin de changé par rapport au 3 mots au lieu d'un seul avec un for each des 3 et a partir du moment ou c'est vrai on continue
@@ -94,6 +146,9 @@ public class testLahbibe : MonoBehaviour
         }
         index++;
         Debug.Log(index);
+        SetWord();
         return true;
     }
+
+    //private void
 }

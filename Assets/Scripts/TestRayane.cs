@@ -18,7 +18,7 @@ public class TestRayane : MonoBehaviour
     public TMP_Text testText;
     public Image testImagePrefab;
     public EHiddenArea testHiddenArea;
-    private List<Image> imageArray = new List<Image>();
+    public List<Image> imageArray = new List<Image>();
 
     public void Start()
     {
@@ -43,7 +43,7 @@ public class TestRayane : MonoBehaviour
         for (int Increment = 0; Increment < testText.text.Length - spaceDetection; Increment++)
         {
             EHiddenArea newEnum = EHiddenArea.NONE;
-            if (testHiddenArea == EHiddenArea.NONE) testHiddenArea = (EHiddenArea)UnityEngine.Random.Range(1, 4);
+            if (testHiddenArea == EHiddenArea.NONE) newEnum = (EHiddenArea)UnityEngine.Random.Range(1, 4);
             else newEnum = testHiddenArea;
             if (testText.textInfo.characterInfo[Increment].character == ' ') spaceDetection++;
             Image testImage = Instantiate<Image>(testImagePrefab);
@@ -80,7 +80,10 @@ public class TestRayane : MonoBehaviour
 
     public void RevealNextLetter()
     {
-        Destroy(imageArray[0]);
-        imageArray.RemoveAt(0);
+        if (imageArray[0])
+        {
+            Destroy(imageArray[0]);
+            imageArray.RemoveAt(0);
+        }
     }
 }
