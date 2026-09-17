@@ -1,7 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using static Unity.VisualScripting.Dependencies.Sqlite.SQLite3;
 
 public class testLahbibe : MonoBehaviour
 {
@@ -14,8 +12,13 @@ public class testLahbibe : MonoBehaviour
     [SerializeField] private TestRayane hiddenWord;
     [SerializeField] private int index = 0;
     [SerializeField] private int letterIndex = 0;
+    [SerializeField] private TextMeshProUGUI clock;
+    [SerializeField] private float missMaluse;
+    [SerializeField] private float wordBonus;
+    [SerializeField] private MenuManager menuManager;
     private string writtenWord;
     private bool isGameOver = false;
+    private bool isGameStopped = false;
     private bool canType = true;
 
     // A suprimier apres les playtest
@@ -32,15 +35,24 @@ public class testLahbibe : MonoBehaviour
     {
         if (isGameOver) return;
 
-        currentTime -= Time.deltaTime;
         if (currentTime <= 0)
         {
             isGameOver = true;
+            cam.backgroundColor = Color.black;
+            return;
+        }
+
+        currentTime -= Time.deltaTime;
+        clock.text = Mathf.RoundToInt(currentTime).ToString();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SetGamePaused();
         }
 
         foreach (char c in Input.inputString)
         {
-            if (Input.anyKeyDown)
+            if (Input.anyKeyDown && canType && !isGameStopped)
             {
                 if (c == '\b')
                 {
@@ -59,6 +71,9 @@ public class testLahbibe : MonoBehaviour
                     {
                         Debug.Log(WordValidation());
                         text.text = "";
+                        // regarder par rapport au mot (si +1, 0, -1) et par rapport au gd
+                        // ajouter des effets visuels
+                        AddOrSubTime(wordBonus);
                     }
                 }
                 else
@@ -72,32 +87,57 @@ public class testLahbibe : MonoBehaviour
                             hiddenWord.RevealNextLetter();
                         }
                     }
-                    //else
-                    //{ 
-                    //    text.text += c;
-                    //    //canType = false;
-                    //    //cam.backgroundColor = Color.red;
-                    //    //foreach(var image in hiddenWord.imageArray)
-                    //    //{
-                    //    //    image.color = Color.red;
-                    //    //}
-
-                    //    //Invoke(nameof(ResetError), timeDelay);
-                        
-                    //}
+                    else
+                    {
+                        MissTheKey(c);
+                    }
                 }
             }
         }
     }
 
-    void ResetError()
+    private void MissTheKey(char _letter)
     {
-        text.text.Remove(letterIndex);
+        text.text += _letter;
+        canType = false;
         cam.backgroundColor = Color.red;
         foreach (var image in hiddenWord.imageArray)
         {
             image.color = Color.red;
         }
+
+        AddOrSubTime(missMaluse);
+
+        Invoke(nameof(StopMissEffect), timeDelay);
+
+
+    }
+
+    public void SetGamePaused()
+    {
+        Debug.Log("Pause Key");
+        menuManager.PauseMenu(!isGameStopped);
+        isGameStopped = !isGameStopped;
+        Time.timeScale = isGameStopped ? 0 : 1;
+        Debug.Log(Time.timeScale);
+    }
+
+    private void AddOrSubTime(float _time)
+    {
+        currentTime += _time;
+        // ajouter l'effet genre pop up, sond, vibrasion
+    }
+
+    void StopMissEffect()
+    {
+        text.text = text.text.Remove(text.text.Length - 1, 1);
+        
+        cam.backgroundColor = Color.white;
+        foreach (var image in hiddenWord.imageArray)
+        {
+            image.color = Color.white;
+        }
+
         canType = true;
     }
 
