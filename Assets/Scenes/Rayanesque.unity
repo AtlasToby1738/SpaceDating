@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestRayane
   testText: {fileID: 0}
   testImagePrefab: {fileID: 6897194446821658888, guid: 56fc40f3da162c9499fcb3f755102edc, type: 3}
-  testHiddenArea: 1
+  testHiddenArea: 2
 --- !u!222 &393955601
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestRayane
   testText: {fileID: 0}
   testImagePrefab: {fileID: 6897194446821658888, guid: 56fc40f3da162c9499fcb3f755102edc, type: 3}
-  testHiddenArea: 1
+  testHiddenArea: 3
 --- !u!222 &601056496
 CanvasRenderer:
   m_ObjectHideFlags: 0
