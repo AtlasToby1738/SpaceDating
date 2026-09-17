@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class testLahbibe : MonoBehaviour
 {
-    [SerializeField] private int dateIndex = 1;
     [SerializeField] private float timer;
     private float currentTime;
     [SerializeField] private string[] words;
@@ -55,7 +54,7 @@ public class testLahbibe : MonoBehaviour
             }
         }
     }
-    
+
     private bool WordValidation()
     {
         // ici on aura besoin de changé par rapport au 3 mots au lieu d'un seul avec un for each des 3 et a partir du moment ou c'est vrai on continue

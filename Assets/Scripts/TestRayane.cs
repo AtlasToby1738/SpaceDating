@@ -43,7 +43,7 @@ public class TestRayane : MonoBehaviour
         for (int Increment = 0; Increment < testText.text.Length - spaceDetection; Increment++)
         {
             EHiddenArea newEnum = EHiddenArea.NONE;
-            if (testHiddenArea == EHiddenArea.NONE) testHiddenArea = (EHiddenArea)UnityEngine.Random.Range(1, 4);
+            if (testHiddenArea == EHiddenArea.NONE) newEnum = (EHiddenArea)UnityEngine.Random.Range(1, 4);
             else newEnum = testHiddenArea;
             if (testText.textInfo.characterInfo[Increment].character == ' ') spaceDetection++;
             Image testImage = Instantiate<Image>(testImagePrefab);
