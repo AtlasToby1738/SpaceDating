@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Teleporter
+  m_Shader: {fileID: -6465566751694194690, guid: f71aeccad159d7d49bf0ecec5e2816ee, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_71f4a041688441ed9c7eec1c69c4550d_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 54497e211b982e0408c3869a2dcae082, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_b3f85d67cce1423a85839b7ced18cd70_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 26242ded163ca454d8e198ee8091aaef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ApparitionBorderSize: 0.87
+    - _ApparitionProgression: 1.85
+    - _Appear: 1
+    - _AuraCurve: 5.32
+    - _AuraPower: 3.79
+    - _Main_Alpha: 0.25
+    - _MultiplyX: 1
+    - _OffsetX: -0
+    - _OffsetY: 0
+    - _ProgressionCurve: 0.17
+    - _ProgressionEmissive: 4.2
+    - _ProgressionNoiseSale: 1.69
+    - _ProgressionNoiseSpeed: 0.92
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SparkleEmissive: 1
+    - _SparkleShiningSpeed: 1.52
+    - _TilingY: 3.01
+    m_Colors:
+    - White: {r: 1, g: 1, b: 1, a: 1}
+    - _HeartColor: {r: 0.9748427, g: 0.63187677, b: 0.6039119, a: 1}
+    - _Main_Color: {r: 0.9874212, g: 0.5433922, b: 0.7629876, a: 1}
+    - _ProgressionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SparkleColor: {r: 0.98742133, g: 0.7719146, b: 0.25772312, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &7677525953006660947
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10
