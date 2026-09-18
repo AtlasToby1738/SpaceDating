@@ -53,4 +53,17 @@ public class ScoreFluid : MonoBehaviour
         }
         _currentScore += _scoreFraction;
     }
+    public IEnumerator ResetingFluid()
+    {
+        float _age = 0;
+        curve = AnimationCurve.Linear(0, _currentScore, 1, 0);
+
+        while (_age < 1)
+        {
+            _age += Time.deltaTime / duration;
+            fluidMaterial.SetFloat("_Score", curve.Evaluate(_age));
+            yield return null;
+        }
+        _currentScore = 0;
+    }
 }
