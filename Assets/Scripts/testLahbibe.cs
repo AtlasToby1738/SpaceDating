@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
@@ -8,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class testLahbibe : MonoBehaviour
 {
+    static public testLahbibe instance;
+
     [Header("Date")]
     [SerializeField] private int dateIndex = 0;
     [SerializeField] private CharacterScript[] pnj;
@@ -58,10 +59,12 @@ public class testLahbibe : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] float timeDelay = 1f;
 
-    static event Action<int> Score;
+    public event Action<int> Score;
 
     void Start()
     {
+        instance = this;
+
         currentTime = timer;
 
         Initialize();
@@ -239,7 +242,7 @@ public class testLahbibe : MonoBehaviour
 
     private void AddOrSubScore(int _score)
     {
-        // Score.Invoke(_score); ERROR EXEPTION
+        Score.Invoke(_score);
         // charaters[dateIndex].attributes.score += _score; --------------------------------
     }
 

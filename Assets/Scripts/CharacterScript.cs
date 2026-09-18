@@ -1,6 +1,4 @@
-using UnityEditor.Compilation;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterScript : MonoBehaviour
 {
