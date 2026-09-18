@@ -67,9 +67,9 @@ Material:
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
     - _HeartColor: {r: 0.9748427, g: 0.63187677, b: 0.6039119, a: 1}
-    - _Main_Color: {r: 0.9874212, g: 0.5433922, b: 0.7629876, a: 1}
+    - _Main_Color: {r: 1, g: 0.24842751, b: 0.61860514, a: 1}
     - _ProgressionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SparkleColor: {r: 0.98742133, g: 0.7719146, b: 0.25772312, a: 1}
+    - _SparkleColor: {r: 1, g: 0.7043011, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7677525953006660947

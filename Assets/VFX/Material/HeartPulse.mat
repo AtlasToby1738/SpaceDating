@@ -66,7 +66,7 @@ Material:
     - _QueueOffset: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.6289307, g: 0, b: 0.38282728, a: 1}
+    - _Color: {r: 0.7169812, g: 0.236739, b: 0.5308874, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
