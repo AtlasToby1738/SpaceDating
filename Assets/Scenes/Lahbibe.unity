@@ -171,11 +171,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d80b94fef55f3448a2bf6eebb81b769, type: 2}
+    - target: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+      propertyPath: attributes
+      value: 
+      objectReference: {fileID: 11400000, guid: f8e839cad5c67094bbb0f08149f70fd3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+--- !u!114 &28682791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+  m_PrefabInstance: {fileID: 28682790}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9559cd2d8d17334d96446281d002370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
 --- !u!1 &299197852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,11 +1326,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 6adf47d0443f73141b576620f48b199f, type: 2}
+    - target: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+      propertyPath: attributes
+      value: 
+      objectReference: {fileID: 11400000, guid: 14b48dbcaf4e2334a9e01a604cb2b06b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+--- !u!114 &937731286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+  m_PrefabInstance: {fileID: 937731285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9559cd2d8d17334d96446281d002370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
 --- !u!1 &983374295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,11 +1693,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: b1670dcb4fc775f41b6d0abfe108a517, type: 2}
+    - target: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+      propertyPath: attributes
+      value: 
+      objectReference: {fileID: 11400000, guid: 06fc89ca20fa7cc4dbe81413b8587f90, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+--- !u!114 &1291877779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
+  m_PrefabInstance: {fileID: 1291877778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9559cd2d8d17334d96446281d002370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
 --- !u!1 &1487963401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2101,7 +2158,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::testLahbibe
   dateIndex: 1
-  charaters: []
+  charaters:
+  - {fileID: 28682791}
+  - {fileID: 1291877779}
+  - {fileID: 937731286}
+  sentences: []
   currentWords: []
   wordsScores: 
   score: 0

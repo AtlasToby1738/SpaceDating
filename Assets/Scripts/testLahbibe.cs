@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 public class testLahbibe : MonoBehaviour
 {
-    [Header ("Date")]
+    [Header("Date")]
     [SerializeField] private int dateIndex = 1;
-    [SerializeField] private Character[] charaters;
+    [SerializeField] private CharacterScript[] charaters;
 
     [Header("Dialogue")]
     [SerializeField] private List<string> sentences;
@@ -51,7 +51,9 @@ public class testLahbibe : MonoBehaviour
     {
         currentTime = timer;
 
-        StartCoroutine(Display());
+        Initialize();
+
+        //StartCoroutine(Display());
 
         SetWord();
 
@@ -159,7 +161,7 @@ public class testLahbibe : MonoBehaviour
     void StopMissEffect()
     {
         text.text = text.text.Remove(text.text.Length - 1, 1);
-        
+
         cam.backgroundColor = Color.white;
         foreach (var image in hiddenWord.imageArray)
         {
@@ -169,23 +171,21 @@ public class testLahbibe : MonoBehaviour
         canType = true;
     }
 
-    private void Initialise()
+    private void Initialize()
     {
         foreach (var character in charaters)
         {
-            character.
+            for (int i = 0; i < 3; i++)
+            {
+                sentences.Add(character.dialogue.grouping[i].characterSentence);
+            }
         }
     }
 
-    IEnumerator Display()
-    {
-        if (Write(_text, _display))
-        {
-            Invoke(nameof(StopMissEffect), timeDelay);
-            Display(_text, _display);
-        }
-
-    }
+    //IEnumerator Display()
+    //{
+    //    foreach 
+    //}
 
     private bool Write(string _text, TextMeshProUGUI _display)
     {
@@ -227,7 +227,7 @@ public class testLahbibe : MonoBehaviour
         //Debug.Log(wordChars.Length);
         //Debug.Log(textChars.Length);
         int mistakes = 0;
-        
+
         for (int i = 0; i < wordChars.Length; i++)
         {
             Debug.Log(i);
