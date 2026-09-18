@@ -12,7 +12,7 @@ public class ScoreFluid : MonoBehaviour
     private float maxScore;
     [SerializeField]
     private float length;
-    
+
     private AnimationCurve curve;
 
     private float _currentScore = 0;
@@ -20,6 +20,11 @@ public class ScoreFluid : MonoBehaviour
     void OnEnable()
     {
         _scoreFraction = length / maxScore;
+    }
+
+    private void ChangeScore(int difference)
+    {
+
     }
 
     public IEnumerator IncreasingScore()
@@ -31,7 +36,7 @@ public class ScoreFluid : MonoBehaviour
         {
             _age += Time.deltaTime / duration;
             fluidMaterial.SetFloat("_Score", curve.Evaluate(_age));
-        yield return null;
+            yield return null;
         }
         _currentScore += _scoreFraction;
     }
