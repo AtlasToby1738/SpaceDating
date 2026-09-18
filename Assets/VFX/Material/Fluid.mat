@@ -70,23 +70,27 @@ Material:
     - _AuraCurve: 16.7
     - _AuraPower: 7.2
     - _EnableExternalAlpha: 0
-    - _HeartsSpeed: 2.12
+    - _HeartsSpeed: 3.08
     - _HueOffset: 0.6
     - _MainAlpha: 0.34
     - _MovementSpeed: 0.56
-    - _NoiseContrast: 0.07
-    - _NoiseScale: 2.85
+    - _NoiseContrast: 0.03
+    - _NoiseScale: 2.32
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Score: -0.1
+    - _Score: 1.01
     - _SparklesShiningSpeed: 0.5
-    - _StarsSpeed: 1
+    - _StarsSpeed: 1.48
     - _ZWrite: 0
     - _tilingX: 0.16
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _HeartsColor: {r: 0.96855336, g: 0.63656485, b: 0.8004581, a: 1}
+<<<<<<< Updated upstream
     - _MainColor: {r: 1, g: 0.13679248, b: 0.9193517, a: 1}
+=======
+    - _MainColor: {r: 0.8867924, g: 0, b: 0.40437722, a: 1}
+>>>>>>> Stashed changes
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SparklesColor: {r: 8, g: 8, b: 8, a: 1}
     - _StarsColor: {r: 2, g: 1.4685991, b: 0, a: 1}

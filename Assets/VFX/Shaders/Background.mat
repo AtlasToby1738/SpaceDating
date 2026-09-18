@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Teleporter
-  m_Shader: {fileID: -6465566751694194690, guid: f71aeccad159d7d49bf0ecec5e2816ee, type: 3}
+  m_Name: Background
+  m_Shader: {fileID: -6465566751694194690, guid: 4115e1f92d953084cac0bf8ab339c530, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -18,18 +18,17 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
+  disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_71f4a041688441ed9c7eec1c69c4550d_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 54497e211b982e0408c3869a2dcae082, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: fcb1352e628b5d248af5b7ede036f6b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_b3f85d67cce1423a85839b7ced18cd70_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 26242ded163ca454d8e198ee8091aaef, type: 3}
+    - _SampleTexture2D_beb2deb4bd7541b29c35bd164d187cb8_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: fcb1352e628b5d248af5b7ede036f6b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -46,33 +45,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ApparitionBorderSize: 0.87
-    - _ApparitionProgression: 1.85
-    - _Appear: 1
-    - _AuraCurve: 26.78
-    - _AuraPower: 7.73
-    - _Main_Alpha: 0.5
-    - _MultiplyX: 1
-    - _OffsetX: -0
-    - _OffsetY: 0
-    - _ProgressionCurve: 0.17
-    - _ProgressionEmissive: 4.2
-    - _ProgressionNoiseSale: 1.69
-    - _ProgressionNoiseSpeed: 0.92
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _SparkleEmissive: 3.8
-    - _SparkleShiningSpeed: 1.52
-    - _TilingY: 3.01
+    - _HeartMovingSpeed: 1
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
-    - _HeartColor: {r: 0.9748427, g: 0.63187677, b: 0.6039119, a: 1}
-    - _Main_Color: {r: 1, g: 0.65723264, b: 0.82683116, a: 1}
-    - _ProgressionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SparkleColor: {r: 1, g: 0.84184235, b: 0.46226406, a: 1}
+    - _HeartColor: {r: 1, g: 0.47484267, b: 0.6647483, a: 1}
+    - _MainColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &7677525953006660947
+--- !u!114 &1832310459155917012
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
