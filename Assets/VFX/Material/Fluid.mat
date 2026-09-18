@@ -86,7 +86,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _HeartsColor: {r: 0.96855336, g: 0.63656485, b: 0.8004581, a: 1}
-    - _MainColor: {r: 0.6289307, g: 0.13646601, b: 0.35904884, a: 1}
+    - _MainColor: {r: 1, g: 0.13679248, b: 0.9193517, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SparklesColor: {r: 8, g: 8, b: 8, a: 1}
     - _StarsColor: {r: 2, g: 1.4685991, b: 0, a: 1}
