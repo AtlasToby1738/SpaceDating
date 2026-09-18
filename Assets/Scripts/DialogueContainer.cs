@@ -12,11 +12,11 @@ public class Sentence
 public class Selection
 {
     [SerializeField] public string characterSentence;
-    [SerializeField] public Sentence[] type;
+    [SerializeField] public Sentence[] type = new Sentence[3];
 }
 
 [CreateAssetMenu(fileName = "DialogueContainer", menuName = "Scriptable Objects/DialogueContainer")]
 public class DialogueContainer : ScriptableObject
 {
-    [SerializeField] Selection[] grouping;
+    [SerializeField] public Selection[] grouping;
 }
