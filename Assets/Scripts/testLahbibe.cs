@@ -242,7 +242,7 @@ public class testLahbibe : MonoBehaviour
 
     private void AddOrSubScore(int _score)
     {
-        // Score.Invoke(_score); ERROR EXEPTION
+        Score.Invoke(_score);
         // charaters[dateIndex].attributes.score += _score; --------------------------------
     }
 
