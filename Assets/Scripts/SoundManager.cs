@@ -6,9 +6,7 @@ public enum ESoundType : Int16
 {
     KEYBOARD,
     GOODWORD,
-    BADWORD,
-    BADLETTER,
-    TELEPORT
+    BADLETTER
 }
 
 public class SoundManager : MonoBehaviour
