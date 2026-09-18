@@ -1,34 +1,62 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class testLahbibe : MonoBehaviour
 {
+    [Header ("Date")]
     [SerializeField] private int dateIndex = 1;
-    [SerializeField] private float timer;
-    private float currentTime;
-    [SerializeField] private string[] words;
+    [SerializeField] private Character[] charaters;
+
+    [Header("Dialogue")]
+    [SerializeField] private List<string> sentences;
+    [SerializeField] private string[] currentWords;
+    [SerializeField] private int[] wordsScores;
+    [SerializeField] private int score = 0;
     [SerializeField] private char[] wordLetters;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TestRayane hiddenWord;
-    [SerializeField] private int index = 0;
+    [SerializeField] private int wordIndex = 0;
     [SerializeField] private int letterIndex = 0;
-    [SerializeField] private TextMeshProUGUI clock;
+    private string writtenWord;
+
+    [Header("Writting")]
+    [SerializeField] private int speed;
+    [SerializeField] private int letterCount = 0;
+
+    [Header("Bonus and Malus")]
     [SerializeField] private float missMaluse;
     [SerializeField] private float wordBonus;
+
+    [Header("Time")]
+    [SerializeField] private float timer;
+    [SerializeField] private TextMeshProUGUI clock;
+    [SerializeField] private float currentTime;
+
+    [Header("Refs")]
     [SerializeField] private MenuManager menuManager;
-    private string writtenWord;
-    private bool isGameOver = false;
-    private bool isGameStopped = false;
-    private bool canType = true;
+
+    [Header("Game")]
+    [SerializeField] private bool isGameOver = false;
+    [SerializeField] private bool isGameStopped = false;
+    [SerializeField] private bool canType = true;
 
     // A suprimier apres les playtest
+    [Header("FeedBacks")]
     [SerializeField] private Camera cam;
     [SerializeField] float timeDelay = 1f;
 
     void Start()
     {
         currentTime = timer;
+
+        StartCoroutine(Display());
+
         SetWord();
+
+
+
     }
 
     void Update()
@@ -67,7 +95,7 @@ public class testLahbibe : MonoBehaviour
                 }
                 else if ((c == '\n') || (c == '\r'))
                 {
-                    if (index <= words.Length && letterIndex == wordLetters.Length)
+                    if (wordIndex <= currentWords.Length && letterIndex == wordLetters.Length)
                     {
                         Debug.Log(WordValidation());
                         text.text = "";
@@ -141,26 +169,60 @@ public class testLahbibe : MonoBehaviour
         canType = true;
     }
 
+    private void Initialise()
+    {
+        foreach (var character in charaters)
+        {
+            character.
+        }
+    }
+
+    IEnumerator Display()
+    {
+        if (Write(_text, _display))
+        {
+            Invoke(nameof(StopMissEffect), timeDelay);
+            Display(_text, _display);
+        }
+
+    }
+
+    private bool Write(string _text, TextMeshProUGUI _display)
+    {
+        if (letterCount == 0) _display.text = "";
+
+        if (letterCount <= _text.Length)
+        {
+            _display.text += _text[letterCount];
+            letterCount++;
+            return true;
+        }
+
+        letterCount = 0;
+        return false;
+    }
+
+
     private void SetWord()
     {
         letterIndex = 0;
-        wordLetters = words[index].ToCharArray();
-        hiddenWord.SetNewWord(words[index]);
+        wordLetters = currentWords[wordIndex].ToCharArray();
+        hiddenWord.SetNewWord(currentWords[wordIndex]);
     }
 
     private bool WordValidation()
     {
         // ici on aura besoin de changé par rapport au 3 mots au lieu d'un seul avec un for each des 3 et a partir du moment ou c'est vrai on continue
-        Debug.Log(words[index].Length);
+        Debug.Log(currentWords[wordIndex].Length);
         Debug.Log(text.text.Length);
 
-        if (words[index].Length != text.text.Length)
+        if (currentWords[wordIndex].Length != text.text.Length)
         {
             Debug.Log("on s'arrete au nombre de char");
             return false;
         }
 
-        char[] wordChars = words[index].ToCharArray();
+        char[] wordChars = currentWords[wordIndex].ToCharArray();
         char[] textChars = text.text.ToCharArray();
         //Debug.Log(wordChars.Length);
         //Debug.Log(textChars.Length);
@@ -184,8 +246,8 @@ public class testLahbibe : MonoBehaviour
             mistakes = 0;
             return false;
         }
-        index++;
-        Debug.Log(index);
+        wordIndex++;
+        Debug.Log(wordIndex);
         SetWord();
         return true;
     }
