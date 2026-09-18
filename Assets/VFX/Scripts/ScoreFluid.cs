@@ -25,6 +25,7 @@ public class ScoreFluid : MonoBehaviour
 
     private void ChangeScore(int difference)
     {
+        Debug.Log("JE SUIS LA BARRE JAI RECU" + difference.ToString());
         if (difference > 0) IncreasingScore();
         else if (difference < 0) DecreasingScore();
     }

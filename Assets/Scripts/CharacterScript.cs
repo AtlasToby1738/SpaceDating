@@ -24,12 +24,12 @@ public class CharacterScript : MonoBehaviour
     {
         attributes.score = 0;
         image.sprite = attributes.sprites[1];
-        image.gameObject.SetActive(true);
+        image.enabled = true;
     }
     public void RemoveCharacter()
     {
         image.sprite = attributes.sprites[1];
-        image.gameObject.SetActive(false);
+        image.enabled = true;
     }
     public string GetName() {return attributes.name;}
     public string[] GetWordTrio(int groupingIndex, int wordIndex, ref bool endOfDate, ref bool endOfSentence)
