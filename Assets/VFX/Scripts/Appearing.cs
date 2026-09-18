@@ -9,11 +9,8 @@ public class Appearing : MonoBehaviour
     private AnimationCurve appearingCurve;
     [SerializeField]
     private Material material;
-    private void OnEnable()
-    {
-        StartCoroutine(CharacterAppearing());
-    }
-    private IEnumerator CharacterAppearing()
+    
+    public IEnumerator CharacterAppearing()
     {
         float _age = 0;
         while(_age<1)
