@@ -14,7 +14,7 @@ public class CharacterScript : MonoBehaviour
     {
         image = GetComponentInChildren<Image>(true);
         image.sprite = attributes.sprites[1];
-        image.enabled = false;
+        image.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,12 +27,12 @@ public class CharacterScript : MonoBehaviour
     {
         attributes.score = 0;
         image.sprite = attributes.sprites[1];
-        image.enabled = true;
+        image.gameObject.SetActive(true);
     }
     public void RemoveCharacter()
     {
         image.sprite = attributes.sprites[1];
-        image.enabled = false;
+        image.gameObject.SetActive(false);
     }
     public string GetName() {return attributes.name;}
     public string[] GetWordTrio(int groupingIndex, int wordIndex, ref bool endOfDate, ref bool endOfSentence)
