@@ -1,3 +1,4 @@
+using UnityEditor.Compilation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,7 @@ public class CharacterScript : MonoBehaviour
 
     public void InitializeCharacter()
     {
+        attributes.score = 0;
         image.sprite = attributes.sprites[1];
         image.enabled = true;
     }

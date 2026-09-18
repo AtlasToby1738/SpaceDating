@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1956494132599572215}
   - component: {fileID: 5159355233991069734}
-  - component: {fileID: 2670241113735052795}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -49,29 +48,8 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   attributes: {fileID: 0}
   image: {fileID: 0}
+  animator: {fileID: 6890628180752414766}
   emotionTime: 1.5
---- !u!95 &2670241113735052795
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530951134124058597}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3967342567275901316
 GameObject:
   m_ObjectHideFlags: 0
