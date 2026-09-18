@@ -20,11 +20,13 @@ public class ScoreFluid : MonoBehaviour
     void OnEnable()
     {
         _scoreFraction = length / maxScore;
+        testLahbibe.instance.Score += ChangeScore;
     }
 
     private void ChangeScore(int difference)
     {
-
+        if (difference > 0) IncreasingScore();
+        else if (difference < 0) DecreasingScore();
     }
 
     public IEnumerator IncreasingScore()
