@@ -4740,8 +4740,8 @@
     "m_ObjectId": "8fadf63079d34a2682276f611888e721",
     "m_Title": "Aura",
     "m_Position": {
-        "x": -1988.6663818359375,
-        "y": -501.3333740234375
+        "x": -1988.0,
+        "y": -501.0
     }
 }
 
@@ -5908,8 +5908,8 @@
     "m_ObjectId": "b10859de7ba1434eb019baca03309a3f",
     "m_Title": "Sparkles",
     "m_Position": {
-        "x": -1412.6663818359375,
-        "y": 966.0000610351563
+        "x": -1411.999755859375,
+        "y": 966.0
     }
 }
 
@@ -6468,8 +6468,8 @@
     "m_ObjectId": "c32a1dd38736413696d81f65ba36be47",
     "m_Title": "Progression",
     "m_Position": {
-        "x": -3051.333251953125,
-        "y": 370.00006103515627
+        "x": -3050.999755859375,
+        "y": 370.0
     }
 }
 
@@ -8103,7 +8103,7 @@
     "m_SurfaceType": 1,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
-    "m_AlphaMode": 2,
+    "m_AlphaMode": 3,
     "m_RenderFace": 2,
     "m_AlphaClip": true,
     "m_CastShadows": false,
