@@ -645,7 +645,7 @@ MonoBehaviour:
   - {fileID: 960748404}
   player: {fileID: 459458480}
   failedPlayerSprite: {fileID: 4641360790437485069, guid: c6faa01f1f5b8ed479bf7f9e62261f66, type: 3}
-  heartSprite: {fileID: -4890969658053316441, guid: 91ff23460ecd8464bb6c210813aeb95c, type: 3}
+  heartSprite: {fileID: -1740929889291853993, guid: 7d3ff1b4c6380724e9c5b62e5a8b1a63, type: 3}
   scoreTexts:
   - {fileID: 731629910}
   - {fileID: 289983841}
@@ -688,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &776239532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -803,9 +803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You''re done dating!
-
-'
+  m_text: Quel charmeur!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -944,9 +942,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2592623070260622352, guid: 7f1e6f9fe0fa6ef408691681a451590c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb47317346e494e48bb3729649195828, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1158,9 +1156,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2592623070260622352, guid: 7f1e6f9fe0fa6ef408691681a451590c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb47317346e494e48bb3729649195828, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1235,9 +1233,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2592623070260622352, guid: 7f1e6f9fe0fa6ef408691681a451590c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb47317346e494e48bb3729649195828, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1407,7 +1405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1541460708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1668,7 +1666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2067819290
 RectTransform:
   m_ObjectHideFlags: 0
