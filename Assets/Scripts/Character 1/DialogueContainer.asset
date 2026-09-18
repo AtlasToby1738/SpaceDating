@@ -13,45 +13,39 @@ MonoBehaviour:
   m_Name: DialogueContainer
   m_EditorClassIdentifier: Assembly-CSharp::DialogueContainer
   grouping:
-  - characterSentence: est ce que ca va ?
+  - characterSentence: "Hum.. Coucou ! Je m'appelle Ophalie. J-je suis \xE9tudiante
+      \xE0..\xE0 la fac depuis longtemps. E-et toi ? ^^"
     type:
     - word:
-      - 1111
-      - 444444444
-      - 7777777777
+      - braconnier
+      - maritime
     - word:
-      - 2222
-      - 555555555555
-      - 888888888888
+      - comptable
+      - bancaire
     - word:
-      - 3333
-      - 666666666666
-      - 99999999999
-  - characterSentence: zdqsdsdsqdqsd
+      - plongeur
+      - aquatique
+  - characterSentence: "C-C'est quoi ton plat pr\xE9f\xE9r\xE9..? M-moi, c'est les
+      crevettes galactiques de la mer Zorb III. Qu'est-ce que c'est bon... >~<"
     type:
     - word:
-      - 
-      - 
-      - 
+      - 'calamar '
+      - frit
     - word:
-      - 
-      - 
-      - 
+      - 'pizza '
+      - poulet
     - word:
-      - 
-      - 
-      - 
-  - characterSentence: dzqdsdqdsqdqds
+      - crabe
+      - bouillit
+  - characterSentence: "E-est-ce qu'il y a des causes que tu d\xE9fends..? Comme
+      l-l'\xE9cologie galactique o-ou encore la cause animal..? :) "
     type:
     - word:
-      - 
-      - 
-      - 
+      - 'asservir '
+      - "plan\xE8tes "
     - word:
-      - 
-      - 
-      - 
+      - ecologie
+      - "plan\xE8taire"
     - word:
-      - 
-      - 
-      - 
+      - anti
+      - racisme
