@@ -82,6 +82,7 @@ Material:
     - _SparklesShiningSpeed: 0.5
     - _StarsSpeed: 1
     - _ZWrite: 0
+    - _tilingX: 0.16
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _HeartsColor: {r: 0.96855336, g: 0.63656485, b: 0.8004581, a: 1}
