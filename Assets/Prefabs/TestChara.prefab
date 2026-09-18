@@ -89,9 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
   index: 1
-  questions:
-  - 
-  - 
-  - 
-  - 
-  - 
+  test:
+  - type:
+    - word: []
