@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CharacterAttributes
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAttributes
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -1017892788931615819, guid: 484c735bee0756e4c986d5b9eea37aea, type: 3}
+  - {fileID: 8242558302591360147, guid: 72c48a1056aff324fb901cdd62eb017e, type: 3}
+  - {fileID: 308210164047054650, guid: ece2030cf074565449e78b6d9e8c9db9, type: 3}
   sounds:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  name: 
+  name: Zork

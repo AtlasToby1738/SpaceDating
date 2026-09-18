@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CharacterAttributes
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAttributes
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -8383862484186201211, guid: 79a21f2f7c28b864488224b169fe1cb2, type: 3}
+  - {fileID: 3438343409575695932, guid: a111abfee8382ba4b99cd10dd5617751, type: 3}
+  - {fileID: -798475304482238366, guid: 2759667639241c343a6fa7a5fd566dde, type: 3}
   sounds:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  name: glptskf
+  name: Cid

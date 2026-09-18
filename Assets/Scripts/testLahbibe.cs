@@ -2,12 +2,18 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class testLahbibe : MonoBehaviour
 {
     [Header("Date")]
-    [SerializeField] private int dateIndex = 1;
+    [SerializeField] private int dateIndex = 0;
     [SerializeField] private CharacterScript[] charaters;
+    [SerializeField] private string name;
+    [SerializeField] private TextMeshProUGUI nameDisplay;
+
 
     [Header("Dialogue")]
     [SerializeField] private List<string> sentences;
@@ -16,18 +22,21 @@ public class testLahbibe : MonoBehaviour
     [SerializeField] private int score = 0;
     [SerializeField] private char[] wordLetters;
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private TestRayane hiddenWord;
+    [SerializeField] private TestRayane[] hiddenWord;
     [SerializeField] private int wordIndex = 0;
-    [SerializeField] private int letterIndex = 0;
+    [SerializeField] private int[] letterIndex;
+    [SerializeField] private int sentenceIndex = 0;
+    [SerializeField] private GameObject[] cursorPositions;
     private string writtenWord;
 
     [Header("Writting")]
     [SerializeField] private int speed;
     [SerializeField] private int letterCount = 0;
+    [SerializeField] private int currentWordIndex = 0;
 
     [Header("Bonus and Malus")]
     [SerializeField] private float missMaluse;
-    [SerializeField] private float wordBonus;
+    [SerializeField] private float wordBonusTime;
 
     [Header("Time")]
     [SerializeField] private float timer;
@@ -41,11 +50,14 @@ public class testLahbibe : MonoBehaviour
     [SerializeField] private bool isGameOver = false;
     [SerializeField] private bool isGameStopped = false;
     [SerializeField] private bool canType = true;
+    [SerializeField] private Image Cursor;
 
     // A suprimier apres les playtest
     [Header("FeedBacks")]
     [SerializeField] private Camera cam;
     [SerializeField] float timeDelay = 1f;
+
+    static Action<int> Score;
 
     void Start()
     {
@@ -55,10 +67,7 @@ public class testLahbibe : MonoBehaviour
 
         //StartCoroutine(Display());
 
-        SetWord();
-
-
-
+        SetWords();
     }
 
     void Update()
@@ -80,41 +89,62 @@ public class testLahbibe : MonoBehaviour
             SetGamePaused();
         }
 
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+
+            currentWordIndex++;
+
+            Debug.Log(currentWordIndex);
+
+            if (currentWordIndex >= 3)
+            {
+                currentWordIndex = 0;
+            }
+
+            SetCursor();
+
+            wordLetters = currentWords[currentWordIndex].ToCharArray();
+        }
+
         foreach (char c in Input.inputString)
         {
             if (Input.anyKeyDown && canType && !isGameStopped)
             {
-                if (c == '\b')
+                if ((c == '\n') || (c == '\r'))
                 {
-                    Debug.Log("backslash mais dans le vide");
-
-                    //if (text.text.Length != 0)
-                    //{
-                    //    letterIndex--;
-                    //    text.text = text.text.Substring(0, text.text.Length - 1);
-                    //    return;
-                    //}
-                }
-                else if ((c == '\n') || (c == '\r'))
-                {
-                    if (wordIndex <= currentWords.Length && letterIndex == wordLetters.Length)
+                    if (wordIndex <= charaters[dateIndex].dialogue.grouping[sentenceIndex].type[0].word.Length && letterIndex[currentWordIndex] == wordLetters.Length)
                     {
-                        Debug.Log(WordValidation());
+                        AddOrSubScore(wordsScores[currentWordIndex]);
+                        AddOrSubTime(wordBonusTime);
+                        wordIndex++;
+                        SetWords();
                         text.text = "";
-                        // regarder par rapport au mot (si +1, 0, -1) et par rapport au gd
+                        currentWordIndex = 0;
+                        SetCursor();
                         // ajouter des effets visuels
-                        AddOrSubTime(wordBonus);
+                    }
+
+                    if (wordIndex >= charaters[dateIndex].dialogue.grouping[sentenceIndex].type[0].word.Length && letterIndex[currentWordIndex] == wordLetters.Length)
+                    {
+                        AddOrSubScore(wordsScores[currentWordIndex]);
+                        AddOrSubTime(wordBonusTime);
+                        wordIndex = 0;
+                        text.text = "";
+                        currentWordIndex = 0;
+                        SetCursor();
+                        ChangeDate(); //-------------------------------------------------------------------
                     }
                 }
                 else
                 {
-                    if (c == wordLetters[letterIndex])
+                    Debug.Log(wordLetters[letterIndex[currentWordIndex]]);
+                    if (c == wordLetters[letterIndex[currentWordIndex]])
                     {
                         text.text += c;
-                        letterIndex++;
+                        letterIndex[currentWordIndex]++;
                         if (char.IsWhiteSpace(c) == false)
                         {
-                            hiddenWord.RevealNextLetter();
+                            hiddenWord[currentWordIndex].RevealNextLetter();
                         }
                     }
                     else
@@ -126,12 +156,24 @@ public class testLahbibe : MonoBehaviour
         }
     }
 
+    private void ChangeDate()
+    {
+        dateIndex ++;
+        if (dateIndex >= 3) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        // activer le teleporteur
+        // set les characteur, apparaitre et disparaitre
+        SetWords();
+
+    }
+
+
     private void MissTheKey(char _letter)
     {
         text.text += _letter;
         canType = false;
         cam.backgroundColor = Color.red;
-        foreach (var image in hiddenWord.imageArray)
+        foreach (var image in hiddenWord[currentWordIndex].imageArray)
         {
             image.color = Color.red;
         }
@@ -139,8 +181,12 @@ public class testLahbibe : MonoBehaviour
         AddOrSubTime(missMaluse);
 
         Invoke(nameof(StopMissEffect), timeDelay);
+    }
 
-
+    private void SetCursor()
+    {
+        float _cursorLocation = hiddenWord[currentWordIndex].gameObject.transform.position.y;
+        Cursor.transform.position = new Vector3(Cursor.transform.position.x, _cursorLocation, 0);
     }
 
     public void SetGamePaused()
@@ -158,12 +204,18 @@ public class testLahbibe : MonoBehaviour
         // ajouter l'effet genre pop up, sond, vibrasion
     }
 
+    private void AddOrSubScore(int _score)
+    {
+        // Score.Invoke(_score); ERROR EXEPTION
+        // charaters[dateIndex].attributes.score += _score; --------------------------------
+    }
+
     void StopMissEffect()
     {
         text.text = text.text.Remove(text.text.Length - 1, 1);
 
         cam.backgroundColor = Color.white;
-        foreach (var image in hiddenWord.imageArray)
+        foreach (var image in hiddenWord[currentWordIndex].imageArray)
         {
             image.color = Color.white;
         }
@@ -173,6 +225,8 @@ public class testLahbibe : MonoBehaviour
 
     private void Initialize()
     {
+        SetDate(); // = 0
+
         foreach (var character in charaters)
         {
             for (int i = 0; i < 3; i++)
@@ -180,6 +234,9 @@ public class testLahbibe : MonoBehaviour
                 sentences.Add(character.dialogue.grouping[i].characterSentence);
             }
         }
+
+        float _cursorLocation = hiddenWord[0].transform.position.y;
+        Cursor.transform.position = new Vector3(Cursor.transform.position.x, _cursorLocation, 0);
     }
 
     //IEnumerator Display()
@@ -201,56 +258,30 @@ public class testLahbibe : MonoBehaviour
         letterCount = 0;
         return false;
     }
-
-
-    private void SetWord()
+    private void SetDate()
     {
-        letterIndex = 0;
-        wordLetters = currentWords[wordIndex].ToCharArray();
-        hiddenWord.SetNewWord(currentWords[wordIndex]);
+        name = charaters[dateIndex].attributes.name;
+        nameDisplay.text = name;
     }
 
-    private bool WordValidation()
+    private void SetWords()
     {
-        // ici on aura besoin de changé par rapport au 3 mots au lieu d'un seul avec un for each des 3 et a partir du moment ou c'est vrai on continue
-        Debug.Log(currentWords[wordIndex].Length);
-        Debug.Log(text.text.Length);
-
-        if (currentWords[wordIndex].Length != text.text.Length)
+        for(int i =0; i < 3; i++)
         {
-            Debug.Log("on s'arrete au nombre de char");
-            return false;
+           letterIndex[i] = 0;
         }
 
-        char[] wordChars = currentWords[wordIndex].ToCharArray();
-        char[] textChars = text.text.ToCharArray();
-        //Debug.Log(wordChars.Length);
-        //Debug.Log(textChars.Length);
-        int mistakes = 0;
-
-        for (int i = 0; i < wordChars.Length; i++)
+        for (int i = 0; i < 3; i++)
         {
-            Debug.Log(i);
-
-            if (wordChars[i] != textChars[i])
-            {
-                Debug.Log("t'as fait une faute la");
-                mistakes++;
-            }
+            //Debug.Log(charaters[dateIndex].dialogue.grouping[sentenceIndex].type[i].word[wordIndex]);
+            currentWords[i] = charaters[dateIndex].dialogue.grouping[sentenceIndex].type[i].word[wordIndex];
         }
 
-        // Il faudra changé avec une enum pour dire faux, vrai ou neutre. ou bien faire avec la valeur du mots
-        if (mistakes >= 2)
+        wordLetters = currentWords[0].ToCharArray();
+
+        for (int j = 0; j < 3; j++)
         {
-            Debug.Log("il y a plus que 2 erreur");
-            mistakes = 0;
-            return false;
+            hiddenWord[j].SetNewWord(currentWords[j]);
         }
-        wordIndex++;
-        Debug.Log(wordIndex);
-        SetWord();
-        return true;
     }
-
-    //private void
 }

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CharacterAttributes
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAttributes
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6409537709038073187, guid: e9da7d8121b98f14fa054a3c0c586601, type: 3}
+  - {fileID: 1715384471592891596, guid: 426ba490067d66b45a45c873048a4ccd, type: 3}
+  - {fileID: 4816936364251563570, guid: d7fb457c992f4bc4b861791705a8f8ec, type: 3}
   sounds:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  name: gnorp
+  name: Ophaline

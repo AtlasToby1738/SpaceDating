@@ -12,4 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f899534a0e83aa24bb4e1f1c010dbb81, type: 3}
   m_Name: DialogueContainer
   m_EditorClassIdentifier: Assembly-CSharp::DialogueContainer
-  grouping: []
+  grouping:
+  - characterSentence: qdsfsfffqfsfsqfdfds
+    type:
+    - word: []
+    - word: []
+    - word: []
+  - characterSentence: fsfdsqfdsqfdsffqdfdsfdsqf
+    type:
+    - word: []
+    - word: []
+    - word: []
+  - characterSentence: jhgkhgjkhkhgkjgkgkkg
+    type:
+    - word: []
+    - word: []
+    - word: []

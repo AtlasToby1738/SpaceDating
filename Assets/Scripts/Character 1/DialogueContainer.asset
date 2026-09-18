@@ -13,7 +13,21 @@ MonoBehaviour:
   m_Name: DialogueContainer
   m_EditorClassIdentifier: Assembly-CSharp::DialogueContainer
   grouping:
-  - characterSentence: 
+  - characterSentence: est ce que ca va ?
+    type:
+    - word:
+      - 1111
+      - 444444444
+      - 7777777777
+    - word:
+      - 2222
+      - 555555555555
+      - 888888888888
+    - word:
+      - 3333
+      - 666666666666
+      - 99999999999
+  - characterSentence: zdqsdsdsqdqsd
     type:
     - word:
       - 
@@ -27,7 +41,7 @@ MonoBehaviour:
       - 
       - 
       - 
-  - characterSentence: 
+  - characterSentence: dzqdsdqdsqdqds
     type:
     - word:
       - 
