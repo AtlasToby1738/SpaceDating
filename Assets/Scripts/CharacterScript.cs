@@ -6,6 +6,7 @@ public class CharacterScript : MonoBehaviour
     public DialogueContainer dialogue;
     public CharacterAttributes attributes;
     public Image image;
+    [SerializeField] private Animator animator;
     [SerializeField] private float emotionTime = 1.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,6 +50,7 @@ public class CharacterScript : MonoBehaviour
     {
         image.sprite = attributes.sprites[responseType];
         Invoke(nameof(ReturnToNeutral), emotionTime);
+        if (responseType != 1) animator.SetTrigger(responseType == 0? "Bad" : "Good");
     }
     private void ReturnToNeutral()
     {
