@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d8c53238c603c0a4588ed1a4d6773608
+guid: 7fdd341e1c572c04fbc158c50a0955a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5212560925014786997
-    second: LogoSpaceDatring_0
+      213: 2082007414840921611
+    second: LogoSpaceDatIng_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LogoSpaceDatring_0
+      name: LogoSpaceDatIng_0
       rect:
         serializedVersion: 2
         x: 339
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4c796eb47349a7b0800000000000000
-      internalID: -5212560925014786997
+      spriteID: b0e825d76b6c4ec10800000000000000
+      internalID: 2082007414840921611
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LogoSpaceDatring_0: -5212560925014786997
+      LogoSpaceDatIng_0: 2082007414840921611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
