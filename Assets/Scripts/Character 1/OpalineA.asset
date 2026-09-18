@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 233c25e07c0005d4397207ee6efa59e1, type: 3}
-  m_Name: CharacterAttributes
+  m_Name: OpalineA
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAttributes
   sprites:
   - {fileID: 6409537709038073187, guid: e9da7d8121b98f14fa054a3c0c586601, type: 3}
@@ -20,4 +20,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  name: Ophaline
+  name: Opaline
+  score: 0

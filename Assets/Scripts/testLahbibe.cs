@@ -58,7 +58,7 @@ public class testLahbibe : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] float timeDelay = 1f;
 
-    static Action<int> Score;
+    static event Action<int> Score;
 
     void Start()
     {

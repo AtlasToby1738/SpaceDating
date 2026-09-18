@@ -13,18 +13,48 @@ MonoBehaviour:
   m_Name: DialogueContainer 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueContainer
   grouping:
-  - characterSentence: qdsfsfffqfsfsqfdfds
+  - characterSentence: "Pr\xE9sente toi dignement, Humain. Tu as devant toi le grand
+      conqu\xE9reur de monde, l'incroyable Zork."
     type:
-    - word: []
-    - word: []
-    - word: []
-  - characterSentence: fsfdsqfdsqfdsffqdfdsfdsqf
+    - word:
+      - yo
+      - "\xE7a va"
+      - gros
+    - word:
+      - coucou
+      - bel
+      - homme
+    - word:
+      - salutation
+      - monsieur
+      - incroyable
+  - characterSentence: "Quel est la chose la plus spontan\xE9e que tu n'ais jamais
+      faite, petit \xEAtre ? "
     type:
-    - word: []
-    - word: []
-    - word: []
-  - characterSentence: jhgkhgjkhkhgkjgkgkkg
+    - word:
+      - carresser
+      - chat
+      - rue
+    - word:
+      - "mis\xE9"
+      - tout
+      - casino
+    - word:
+      - battre
+      - dans
+      - bar
+  - characterSentence: "Les personnes inf\xE9rieures telle que toi, qu'est ce qu'ils
+      recherchent chez un partenaire ?"
     type:
-    - word: []
-    - word: []
-    - word: []
+    - word:
+      - absolument
+      - pas
+      - toi
+    - word:
+      - personne
+      - petite
+      - moi
+    - word:
+      - cherche
+      - comme
+      - toi
