@@ -60,7 +60,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _Float: -1.54
-    - _Progression: 2.9
+    - _Progression: -2.896173
     - _PulseSpeed: 1.96
     - _QueueControl: 0
     - _QueueOffset: 0

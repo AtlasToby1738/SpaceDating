@@ -12,7 +12,6 @@ public class CharacterScript : MonoBehaviour
     {
         image = GetComponentInChildren<SpriteRenderer>(true);
         image.sprite = attributes.sprites[1];
-        image.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

@@ -318,7 +318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3409695872725591299, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3818995807167427410, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
       propertyPath: m_Sprite
@@ -326,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 1715384471592891596, guid: 426ba490067d66b45a45c873048a4ccd, type: 3}
     - target: {fileID: 3818995807167427410, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5159355233991069734, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
       propertyPath: dialogue
