@@ -23,8 +23,6 @@ public class TestRayane : MonoBehaviour
     public void Start()
     {
         testText = GetComponent<TMP_Text>();
-        //CODE TEST A CHANGER
-        SetNewWord("GnorpGlorp");
     }
     
     public void SetNewWord(string Word)

@@ -38,7 +38,7 @@ public class Teleporter : MonoBehaviour
             StartCoroutine(AppearingCoroutine());
         }
     }
-    private IEnumerator AppearingCoroutine()
+    public IEnumerator AppearingCoroutine()
     {
         
         int _i = 0;
@@ -77,8 +77,10 @@ public class Teleporter : MonoBehaviour
             yield return null;
         }
         _hasAlreadyAppeared = true;
+
+        StartCoroutine(DisappearingCoroutine());
     }
-    private IEnumerator DisappearingCoroutine()
+    public IEnumerator DisappearingCoroutine()
     {
         teleporterMaterial.SetFloat("_Appear", 0);
         float _age = 0;
@@ -86,6 +88,7 @@ public class Teleporter : MonoBehaviour
         {
             _age += Time.deltaTime / duration;
             teleporterMaterial.SetFloat("_ApparitionProgression", -1*appearingCurve.Evaluate(_age));
+            heartMaterial.SetFloat("_Progression", -heartCurve.Evaluate(_age));
             yield return null;
         }
         _hasAlreadyAppeared= false;

@@ -47,6 +47,7 @@ public class testLahbibe : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] private MenuManager menuManager;
+    [SerializeField] private Teleporter teleporter;
 
     [Header("Game")]
     [SerializeField] private bool isGameOver = false;
@@ -69,8 +70,6 @@ public class testLahbibe : MonoBehaviour
 
         Initialize();
 
-        //StartCoroutine(Display());
-
         SetWords();
     }
 
@@ -81,8 +80,8 @@ public class testLahbibe : MonoBehaviour
         if (currentTime <= 0)
         {
             isGameOver = true;
-            cam.backgroundColor = Color.black;
-            return;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         currentTime -= Time.deltaTime;
@@ -121,7 +120,7 @@ public class testLahbibe : MonoBehaviour
                     {
                         Debug.Log("-----------------------------------------------------------");
 
-                        AddOrSubScore(wordsScores[currentWordIndex]);
+                        AddOrSubScore(wordsScores[currentWordIndex] - 1);
                         AddOrSubTime(wordBonusTime);
                         wordIndex++;
                         SetWords();
@@ -135,7 +134,7 @@ public class testLahbibe : MonoBehaviour
                     {
                         Debug.Log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
 
-                        AddOrSubScore(wordsScores[currentWordIndex]);
+                        AddOrSubScore(wordsScores[currentWordIndex] - 1);
                         AddOrSubTime(wordBonusTime);
                         wordIndex = 0;
                         text.text = "";
@@ -147,13 +146,19 @@ public class testLahbibe : MonoBehaviour
                     if (sentenceIndex <= pnj[dateIndex].dialogue.grouping.Length && letterIndex[currentWordIndex] == wordLetters.Length)
                     {
                         Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                        AddOrSubScore(wordsScores[currentWordIndex]);
+                        pnj[dateIndex].RemoveCharacter();
+                        AddOrSubScore(wordsScores[currentWordIndex] - 1);
                         AddOrSubTime(wordBonusTime);
+                        pnj[dateIndex].attributes.score = score;
+                        score = 0;
                         wordIndex = 0;
                         text.text = "";
                         currentWordIndex = 0;
+                        sentenceIndex = 0;
                         SetCursor();
                         ChangeDate();
+                        currentTime = timer;
+                        pnj[dateIndex].InitializeCharacter();
                     }
                 }
                 else
@@ -169,6 +174,8 @@ public class testLahbibe : MonoBehaviour
                         {
                             hiddenWord[currentWordIndex].RevealNextLetter();
                         }
+
+                        // sond --------------------------------------------------------------------
                     }
                     else
                     {
@@ -183,6 +190,8 @@ public class testLahbibe : MonoBehaviour
     {
         dateIndex ++;
         if (dateIndex >= 3) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        StartCoroutine(teleporter.AppearingCoroutine());
 
         // activer le teleporteur
         // set les characteur, apparaitre et disparaitre
@@ -204,6 +213,8 @@ public class testLahbibe : MonoBehaviour
         }
 
         AddOrSubTime(missMaluse);
+
+
 
         Invoke(nameof(StopMissEffect), timeDelay);
     }
@@ -237,12 +248,19 @@ public class testLahbibe : MonoBehaviour
     private void AddOrSubTime(float _time)
     {
         currentTime += _time;
+
+        //if (currentTime < 0) // sond --------------------------------------------------------------------
+
         // ajouter l'effet genre pop up, sond, vibrasion
     }
 
     private void AddOrSubScore(int _score)
     {
-        Score.Invoke(_score);
+        Debug.Log(_score);
+        Score?.Invoke(_score);
+        score += _score;
+        // sond --------------------------------------------------------------------
+
         // charaters[dateIndex].attributes.score += _score; --------------------------------
     }
 
@@ -261,6 +279,7 @@ public class testLahbibe : MonoBehaviour
 
     private void Initialize()
     {
+        pnj[dateIndex].InitializeCharacter();
 
         foreach (var character in pnj)
         {
@@ -275,6 +294,8 @@ public class testLahbibe : MonoBehaviour
 
         Debug.Log("ici");
         SetDate();
+
+        StartCoroutine(teleporter.DisappearingCoroutine());
     }
 
     //IEnumerator Display()
@@ -310,7 +331,7 @@ public class testLahbibe : MonoBehaviour
            letterIndex[i] = 0;
         }
 
-        for (int i = 0; i < pnj[dateIndex].dialogue.grouping[sentenceIndex].type[0].word.Length; i++)
+        for (int i = 0; i < pnj[dateIndex].dialogue.grouping[sentenceIndex].type.Length; i++)
         {
             Debug.Log(dateIndex);
             Debug.Log(sentenceIndex);

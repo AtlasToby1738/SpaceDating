@@ -55,13 +55,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _InverseSize: 30
+    - _InverseSize: 5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ScrollingSpeed: 1
+    - _ScrollingSpeed: 0.7
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.9450981, b: 0.9450981, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
