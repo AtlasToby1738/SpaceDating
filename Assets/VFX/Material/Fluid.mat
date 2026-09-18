@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2083375480199910903
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -24,22 +37,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_4012623349274a4f9cffc264737900cb_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: fcb1352e628b5d248af5b7ede036f6b9, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -66,46 +63,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Add: -1
-    - _AuraCurve: 16.7
-    - _AuraPower: 7.2
-    - _EnableExternalAlpha: 0
-    - _HeartsSpeed: 3.08
-    - _HueOffset: 0.6
-    - _MainAlpha: 0.34
-    - _MovementSpeed: 0.56
+    - _HeartsSpeed: 1.12
+    - _MainAlpha: 0.5
+    - _MovementSpeed: 1.59
     - _NoiseContrast: 0.03
-    - _NoiseScale: 2.32
+    - _NoiseScale: 2
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Score: 1.01
-    - _SparklesShiningSpeed: 0.5
-    - _StarsSpeed: 1.48
-    - _ZWrite: 0
-    - _tilingX: 0.16
+    - _Score: 0.08
+    - _SparklesShiningSpeed: 1.1
+    - _StarsSpeed: 1
+    - _tilingX: 0.12
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _HeartsColor: {r: 0.96855336, g: 0.63656485, b: 0.8004581, a: 1}
-<<<<<<< Updated upstream
-    - _MainColor: {r: 1, g: 0.13679248, b: 0.9193517, a: 1}
-=======
-    - _MainColor: {r: 0.8867924, g: 0, b: 0.40437722, a: 1}
->>>>>>> Stashed changes
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SparklesColor: {r: 8, g: 8, b: 8, a: 1}
-    - _StarsColor: {r: 2, g: 1.4685991, b: 0, a: 1}
+    - _HeartsColor: {r: 1.9371068, g: 1.2731298, b: 1.6009161, a: 1}
+    - _MainColor: {r: 0.9685534, g: 0.057869356, b: 0.46732396, a: 1}
+    - _SparklesColor: {r: 16, g: 16, b: 16, a: 1}
+    - _StarsColor: {r: 1.8867924, g: 1.4561276, b: 0.2669986, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &3809477111698839213
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
-  version: 10

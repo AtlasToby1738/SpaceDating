@@ -114,15 +114,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b3487d4062d7fe47af0c8871781c09d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.010000229
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b3487d4062d7fe47af0c8871781c09d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.98
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b3487d4062d7fe47af0c8871781c09d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b3487d4062d7fe47af0c8871781c09d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -155,7 +155,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6b3487d4062d7fe47af0c8871781c09d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d86f3db2e292c5d489d450c9903d178a, type: 2}
+      objectReference: {fileID: 2100000, guid: d9151cd9401ae3e41a6ea7b32124f355, type: 2}
     - target: {fileID: -5754084199372789682, guid: 6b3487d4062d7fe47af0c8871781c09d, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreFluid
   duration: 2
-  fluidMaterial: {fileID: 2100000, guid: d86f3db2e292c5d489d450c9903d178a, type: 2}
+  fluidMaterial: {fileID: 2100000, guid: d9151cd9401ae3e41a6ea7b32124f355, type: 2}
   maxScore: 10
   length: 1
 --- !u!4 &861100519538630972 stripped
