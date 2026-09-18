@@ -20,11 +20,29 @@ MonoBehaviour:
     - word: []
   - characterSentence: gdrgsdgdgdgdsfgfds
     type:
-    - word: []
-    - word: []
-    - word: []
+    - word:
+      - 
+      - 
+      - 
+    - word:
+      - 
+      - 
+      - 
+    - word:
+      - 
+      - 
+      - 
   - characterSentence: fdgsdgdgfdsgfdsgfdsdgfsgdf
     type:
-    - word: []
-    - word: []
-    - word: []
+    - word:
+      - 
+      - 
+      - 
+    - word:
+      - 
+      - 
+      - 
+    - word:
+      - 
+      - 
+      - 

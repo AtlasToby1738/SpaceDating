@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f899534a0e83aa24bb4e1f1c010dbb81, type: 3}
+  m_Name: DialogueContainer 1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueContainer
+  grouping:
+  - characterSentence: "Pr\xE9sente toi dignement, Humain. Tu as devant toi le grand
+      conqu\xE9reur de monde, l'incroyable Zork."
+    type:
+    - word:
+      - yo
+      - "\xE7a va"
+      - gros
+    - word:
+      - coucou
+      - bel
+      - homme
+    - word:
+      - salutation
+      - monsieur
+      - incroyable
+  - characterSentence: "Quel est la chose la plus spontan\xE9e que tu n'ais jamais
+      faite, petit \xEAtre ? "
+    type:
+    - word:
+      - carresser
+      - chat
+      - rue
+    - word:
+      - "mis\xE9"
+      - tout
+      - casino
+    - word:
+      - battre
+      - dans
+      - bar
+  - characterSentence: "Les personnes inf\xE9rieures telle que toi, qu'est ce qu'ils
+      recherchent chez un partenaire ?"
+    type:
+    - word:
+      - absolument
+      - pas
+      - toi
+    - word:
+      - personne
+      - petite
+      - moi
+    - word:
+      - cherche
+      - comme
+      - toi
