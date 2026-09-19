@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OpalineD
   m_EditorClassIdentifier: Assembly-CSharp::DialogueContainer
   grouping:
-  - characterSentence: "Hum.. Coucou ! Je m'appelle Ophalie. J-je suis \xE9tudiante
+  - characterSentence: "Hum.. Coucou ! Je m'appelle Ophaline. J-je suis \xE9tudiante
       \xE0..\xE0 la fac depuis longtemps. E-et toi ? ^^"
     type:
     - word:

@@ -20,4 +20,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  name: Zork
+  charaName: Zork
+  score: 0
