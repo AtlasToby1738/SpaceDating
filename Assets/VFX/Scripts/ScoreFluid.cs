@@ -21,6 +21,7 @@ public class ScoreFluid : MonoBehaviour
 
     void OnEnable()
     {
+        _currentScore = 0;
         fluidMaterial.SetFloat("_Score", 0);
         _scoreFraction = length / (maxScore * 2);
         testLahbibe.Score += ChangeScore;
@@ -29,6 +30,7 @@ public class ScoreFluid : MonoBehaviour
 
     private void OnDisable()
     {
+        _currentScore = 0;
         fluidMaterial.SetFloat("_Score", 0);
         _scoreFraction = length / (maxScore * 2);
         testLahbibe.Score -= ChangeScore;
