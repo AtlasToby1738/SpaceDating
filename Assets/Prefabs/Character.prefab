@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1956494132599572215}
   - component: {fileID: 5159355233991069734}
-  - component: {fileID: 4178972120999554235}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -51,27 +50,7 @@ MonoBehaviour:
   image: {fileID: 3818995807167427410}
   animator: {fileID: 0}
   emotionTime: 1.5
-  apparingScript: {fileID: 4178972120999554235}
---- !u!114 &4178972120999554235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530951134124058597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ef2e02d952a2244bb8edaa554044809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Appearing
-  duration: 1
-  appearingCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  material: {fileID: -876546973899608171, guid: 0d1af14b075bb3847b902494fd5b83cf, type: 3}
+  apparingScript: {fileID: 0}
 --- !u!1 &3409695872725591299
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +62,7 @@ GameObject:
   - component: {fileID: 2079919852858831350}
   - component: {fileID: 3818995807167427410}
   - component: {fileID: 6168606527889634678}
+  - component: {fileID: 5018247491035268325}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -131,7 +111,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: a4dafdb29a96cb041b5a69a99031b91e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,3 +166,65 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5018247491035268325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409695872725591299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef2e02d952a2244bb8edaa554044809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Appearing
+  duration: 2
+  appearingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  disappearingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  material: {fileID: 2100000, guid: a4dafdb29a96cb041b5a69a99031b91e, type: 2}
