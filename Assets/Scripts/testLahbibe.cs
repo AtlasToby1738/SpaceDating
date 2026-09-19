@@ -292,6 +292,7 @@ public class testLahbibe : MonoBehaviour
     private void SetDate()
     {
         nameDisplay.text = pnj[dateIndex].GetName();
+        Debug.Log(pnj[dateIndex].GetName());
         currentTime = timer;
         SetSentence();
     }
