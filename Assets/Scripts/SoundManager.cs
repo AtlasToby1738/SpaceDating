@@ -11,7 +11,7 @@ public enum ESoundType : Int16
 
 public class SoundManager : MonoBehaviour
 {
-    static SoundManager instance;
+    public static SoundManager instance;
     public AudioSource[] audioSources;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
