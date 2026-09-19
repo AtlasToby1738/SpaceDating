@@ -360,6 +360,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4534667408503144046, guid: d708562732b602b48878561441281c0c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 211956732253634500, guid: 348bfaec2a1b9ff4ba66015be4df84e3, type: 3}
     - target: {fileID: 4706812661998309836, guid: d708562732b602b48878561441281c0c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -417,8 +421,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5935452053076583841, guid: d708562732b602b48878561441281c0c, type: 3}
+      propertyPath: length
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935452053076583841, guid: d708562732b602b48878561441281c0c, type: 3}
+      propertyPath: duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935452053076583841, guid: d708562732b602b48878561441281c0c, type: 3}
       propertyPath: maxScore
-      value: 2
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935452053076583841, guid: d708562732b602b48878561441281c0c, type: 3}
+      propertyPath: _currentScore
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7165073300482458138, guid: d708562732b602b48878561441281c0c, type: 3}
       propertyPath: m_Name
@@ -1027,7 +1043,6 @@ MonoBehaviour:
   - {fileID: 104388024}
   - {fileID: 2141869340}
   - {fileID: 1933532936}
-  name: 
   nameDisplay: {fileID: 1636397831}
   sentences: []
   sentencesDisplay: {fileID: 1060037349}
@@ -1052,6 +1067,9 @@ MonoBehaviour:
   speed: 0
   letterCount: 0
   currentWordIndex: 0
+  patchColors:
+  - {r: 1, g: 0.9450981, b: 0.9450981, a: 1}
+  - {r: 1, g: 0.74509805, b: 0.74509805, a: 1}
   missMaluse: -1
   wordBonusTime: 2
   timer: 120
@@ -1059,6 +1077,7 @@ MonoBehaviour:
   currentTime: 0
   menuManager: {fileID: 636122523}
   teleporter: {fileID: 1900482175}
+  loop: {fileID: 1372524619}
   isGameOver: 0
   isGameStopped: 0
   canType: 1
@@ -1528,6 +1547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4107142639172182721, guid: 2cdc823115dfa2e4b978823648a645b3, type: 3}
+      propertyPath: _hasAlreadyAppeared
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7385050677841038114, guid: 2cdc823115dfa2e4b978823648a645b3, type: 3}
       propertyPath: m_Name
       value: Teleporter
@@ -1619,7 +1642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -668, y: 141}
+  m_AnchoredPosition: {x: -668, y: -62}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941274238
@@ -2212,12 +2235,12 @@ GameObject:
   - component: {fileID: 1372524620}
   - component: {fileID: 1372524619}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1372524618
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2234,8 +2257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 614.4598, y: -383.18}
-  m_SizeDelta: {x: 514.4, y: 276.36}
+  m_AnchoredPosition: {x: 614.4598, y: -391.30246}
+  m_SizeDelta: {x: 514.4, y: 297.3951}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372524619
 MonoBehaviour:
@@ -3192,7 +3215,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 530951134124058597, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
       propertyPath: m_Name
-      value: Cid
+      value: Sid
       objectReference: {fileID: 0}
     - target: {fileID: 530951134124058597, guid: eb8c96ede66bfc3438c7d4c0547cf42b, type: 3}
       propertyPath: m_IsActive
@@ -3274,6 +3297,8 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 636122527}
+  - {fileID: 1057356942}
   - {fileID: 1543955420}
   - {fileID: 122794818}
   - {fileID: 445018161}
@@ -3284,6 +3309,4 @@ SceneRoots:
   - {fileID: 104388023}
   - {fileID: 2141869339}
   - {fileID: 1933532935}
-  - {fileID: 636122527}
   - {fileID: 2031991587}
-  - {fileID: 1057356942}

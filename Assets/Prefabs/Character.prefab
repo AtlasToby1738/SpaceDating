@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1956494132599572215}
   - component: {fileID: 5159355233991069734}
+  - component: {fileID: 4178972120999554235}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -50,6 +51,27 @@ MonoBehaviour:
   image: {fileID: 3818995807167427410}
   animator: {fileID: 0}
   emotionTime: 1.5
+  apparingScript: {fileID: 4178972120999554235}
+--- !u!114 &4178972120999554235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530951134124058597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef2e02d952a2244bb8edaa554044809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Appearing
+  duration: 1
+  appearingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  material: {fileID: -876546973899608171, guid: 0d1af14b075bb3847b902494fd5b83cf, type: 3}
 --- !u!1 &3409695872725591299
 GameObject:
   m_ObjectHideFlags: 0

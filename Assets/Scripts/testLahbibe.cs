@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class testLahbibe : MonoBehaviour
 {
@@ -12,9 +13,7 @@ public class testLahbibe : MonoBehaviour
     [Header("Date")]
     [SerializeField] private int dateIndex = 0;
     [SerializeField] private CharacterScript[] pnj;
-    [SerializeField] private string name;
     [SerializeField] private TextMeshProUGUI nameDisplay;
-
 
     [Header("Dialogue")]
     [SerializeField] private List<string> sentences;
@@ -35,6 +34,7 @@ public class testLahbibe : MonoBehaviour
     [SerializeField] private int speed;
     [SerializeField] private int letterCount = 0;
     [SerializeField] private int currentWordIndex = 0;
+    [SerializeField] private Color[] patchColors;
 
     [Header("Bonus and Malus")]
     [SerializeField] private float missMaluse;
@@ -48,34 +48,57 @@ public class testLahbibe : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private MenuManager menuManager;
     [SerializeField] private Teleporter teleporter;
+    [SerializeField] private Image loop;
 
     [Header("Game")]
     [SerializeField] private bool isGameOver = false;
     [SerializeField] private bool isGameStopped = false;
     [SerializeField] private bool canType = true;
     [SerializeField] private Image Cursor;
+    private bool isFirstReveal = true;
 
     // A suprimier apres les playtest
     [Header("FeedBacks")]
     [SerializeField] private Camera cam;
     [SerializeField] float timeDelay = 1f;
 
-    public event Action<int> Score;
+    public static event Action<int> Score;
+    public static event Action OnChangeDate;
+
+    private void OnEnable()
+    {
+        teleporter.OnTeleportArrived += HandleTeleportArrived;
+    }
+
+    private void OnDisable()
+    {
+        teleporter.OnTeleportArrived -= HandleTeleportArrived;
+    }
 
     void Start()
     {
         instance = this;
-
         currentTime = timer;
 
         Initialize();
+    }
 
-        SetWords();
+    private void Initialize()
+    {
+        foreach (var character in pnj)
+        {
+            for (int i = 0; i < pnj[dateIndex].dialogue.grouping.Length; i++)
+            {
+                sentences.Add(character.dialogue.grouping[i].characterSentence);
+            }
+        }
+
+        StartCoroutine(teleporter.AppearingCoroutine());
     }
 
     void Update()
     {
-        if (isGameOver) return;
+        if (isGameOver || isFirstReveal) return;
 
         if (currentTime <= 0)
         {
@@ -86,6 +109,7 @@ public class testLahbibe : MonoBehaviour
 
         currentTime -= Time.deltaTime;
         clock.text = Mathf.RoundToInt(currentTime).ToString();
+
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -115,108 +139,87 @@ public class testLahbibe : MonoBehaviour
             {
                 if ((c == '\n') || (c == '\r'))
                 {
-                    Debug.Log(wordIndex);
-                    if (wordIndex < pnj[dateIndex].dialogue.grouping[sentenceIndex].type[0].word.Length - 1 && letterIndex[currentWordIndex] == wordLetters.Length)
+                    if (letterIndex[currentWordIndex] == wordLetters.Length)
                     {
-                        Debug.Log("-----------------------------------------------------------");
-
-                        AddOrSubScore(wordsScores[currentWordIndex] - 1);
+                        AddOrSubScore(wordsScores[currentWordIndex]);
                         AddOrSubTime(wordBonusTime);
-                        wordIndex++;
-                        SetWords();
-                        text.text = "";
                         currentWordIndex = 0;
+                        text.text = "";
                         SetCursor();
-                        // ajouter des effets visuels
-                    }
 
-                    if (letterIndex[currentWordIndex] == wordLetters.Length && wordIndex <= pnj[dateIndex].dialogue.grouping[sentenceIndex].type[0].word.Length - 1 && sentenceIndex < pnj[dateIndex].dialogue.grouping.Length - 1)
-                    {
-                        Debug.Log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+                        int wordCount = pnj[dateIndex].dialogue.grouping[sentenceIndex].type[0].word.Length;
+                        int sentenceCount = pnj[dateIndex].dialogue.grouping.Length;
 
-                        AddOrSubScore(wordsScores[currentWordIndex] - 1);
-                        AddOrSubTime(wordBonusTime);
-                        wordIndex = 0;
-                        text.text = "";
-                        currentWordIndex = 0;
-                        SetCursor();
-                        ChangeSentence();
-                        SetWords();//-------------------------------------------------------------------
-                    }
-                    if (sentenceIndex <= pnj[dateIndex].dialogue.grouping.Length && letterIndex[currentWordIndex] == wordLetters.Length)
-                    {
-                        Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                        pnj[dateIndex].RemoveCharacter();
-                        AddOrSubScore(wordsScores[currentWordIndex] - 1);
-                        AddOrSubTime(wordBonusTime);
-                        pnj[dateIndex].attributes.score = score;
-                        score = 0;
-                        wordIndex = 0;
-                        text.text = "";
-                        currentWordIndex = 0;
-                        sentenceIndex = 0;
-                        SetCursor();
-                        ChangeDate();
-                        currentTime = timer;
-                        pnj[dateIndex].InitializeCharacter();
-                    }
-                }
-                else
-                {
-                    Debug.Log(letterIndex[currentWordIndex]);
-                    Debug.Log("/");
-                    Debug.Log(currentWords[currentWordIndex].Length);
-                    if (letterIndex[currentWordIndex] < currentWords[currentWordIndex].Length && c == wordLetters[letterIndex[currentWordIndex]])
-                    {
-                        text.text += c;
-                        letterIndex[currentWordIndex]++;
-                        if (char.IsWhiteSpace(c) == false)
+                        if (wordIndex < wordCount - 1)
                         {
-                            hiddenWord[currentWordIndex].RevealNextLetter();
+                            //Debug.Log("il reste des mots dans la phrase actuelle");
+
+                            wordIndex++;
+                            SetWords();
+                        }
+                        else if (sentenceIndex < sentenceCount - 1)
+                        {
+                            //Debug.Log("plus de mots dans cette phrase, mais il reste des phrases");
+
+                            wordIndex = 0;
+                            ChangeSentence();
+                            SetWords();
+                        }
+                        else
+                        {
+                            //Debug.Log("plus de mots ni de phrases -> date suivante");
+
+                            wordIndex = 0;
+                            sentenceIndex = 0;
+                            currentWordIndex = 0;
+                            ChangeDate();
                         }
 
-                        // sond --------------------------------------------------------------------
-                    }
-                    else
-                    {
-                        MissTheKey(c);
+                        return;
                     }
                 }
+
+                else if (c == wordLetters[letterIndex[currentWordIndex]])
+                {
+                    text.text += c;
+                    letterIndex[currentWordIndex]++;
+                    if (char.IsWhiteSpace(c) == false)
+                    {
+                        hiddenWord[currentWordIndex].RevealNextLetter();
+                    }
+                    return;
+                    // sond --------------------------------------------------------------------
+                }
+
+                MissTheKey(c);
             }
         }
     }
-
-    private void ChangeDate()
-    {
-        dateIndex ++;
-        if (dateIndex >= 3) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
-        StartCoroutine(teleporter.AppearingCoroutine());
-
-        // activer le teleporteur
-        // set les characteur, apparaitre et disparaitre
-
-        SetDate();
-
-        SetWords();
-    }
-
 
     private void MissTheKey(char _letter)
     {
         text.text += _letter;
         canType = false;
-        cam.backgroundColor = Color.red;
         foreach (var image in hiddenWord[currentWordIndex].imageArray)
         {
-            image.color = Color.red;
+            image.color = patchColors[1];
         }
-
         AddOrSubTime(missMaluse);
 
-
-
         Invoke(nameof(StopMissEffect), timeDelay);
+    }
+
+    void StopMissEffect()
+    {
+        text.text = text.text.Remove(text.text.Length - 1, 1);
+
+        cam.backgroundColor = Color.white;
+        foreach (var image in hiddenWord[currentWordIndex].imageArray)
+        {
+            image.color = patchColors[0];
+        }
+
+        canType = true;
     }
 
     private void SetCursor()
@@ -256,52 +259,15 @@ public class testLahbibe : MonoBehaviour
 
     private void AddOrSubScore(int _score)
     {
-        Debug.Log(_score);
         Score?.Invoke(_score);
         score += _score;
+        Debug.Log(score);
         // sond --------------------------------------------------------------------
 
         // charaters[dateIndex].attributes.score += _score; --------------------------------
     }
 
-    void StopMissEffect()
-    {
-        text.text = text.text.Remove(text.text.Length - 1, 1);
 
-        cam.backgroundColor = Color.white;
-        foreach (var image in hiddenWord[currentWordIndex].imageArray)
-        {
-            image.color = Color.white;
-        }
-
-        canType = true;
-    }
-
-    private void Initialize()
-    {
-        pnj[dateIndex].InitializeCharacter();
-
-        foreach (var character in pnj)
-        {
-            for (int i = 0; i < pnj[dateIndex].dialogue.grouping.Length; i++)
-            {
-                sentences.Add(character.dialogue.grouping[i].characterSentence);
-            }
-        }
-
-        float _cursorLocation = hiddenWord[0].transform.position.y;
-        Cursor.transform.position = new Vector3(Cursor.transform.position.x, _cursorLocation, 0);
-
-        Debug.Log("ici");
-        SetDate();
-
-        StartCoroutine(teleporter.DisappearingCoroutine());
-    }
-
-    //IEnumerator Display()
-    //{
-    //    foreach 
-    //}
 
     private bool Write(string _text, TextMeshProUGUI _display)
     {
@@ -317,28 +283,79 @@ public class testLahbibe : MonoBehaviour
         letterCount = 0;
         return false;
     }
+
+    private void ChangeDate()
+    {
+        StartCoroutine(teleporter.AppearingCoroutine());
+    }
+
     private void SetDate()
     {
-        name = pnj[dateIndex].attributes.name;
-        nameDisplay.text = name;
+        nameDisplay.text = pnj[dateIndex].GetName();
+        currentTime = timer;
         SetSentence();
+    }
+
+    private void HandleTeleportArrived()
+    {
+        Debug.Log($"HandleTeleportArrived appelé, dateIndex avant = {dateIndex}");
+
+        if (isFirstReveal)
+        {
+            isFirstReveal = false;
+            pnj[dateIndex].InitializeCharacter();
+            float _cursorLocation = hiddenWord[0].transform.position.y;
+            Cursor.transform.position = new Vector3(Cursor.transform.position.x, _cursorLocation, 0);
+            SetDate();
+            SetWords();
+            loop.gameObject.SetActive(true);
+            return;
+        }
+
+        pnj[dateIndex].RemoveCharacter();
+        pnj[dateIndex].attributes.score = score;
+        Debug.Log(score);
+        score = 0;
+
+        dateIndex++;
+        if (dateIndex >= pnj.Length)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            return;
+        }
+
+        pnj[dateIndex].InitializeCharacter();
+        OnChangeDate?.Invoke();
+
+        sentenceIndex = 0;
+        wordIndex = 0;
+        currentWordIndex = 0;
+
+        SetDate();
+        SetWords();
     }
 
     private void SetWords()
     {
-        for(int i =0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
-           letterIndex[i] = 0;
+            letterIndex[i] = 0;
+            wordsScores[i] = 0;
         }
 
-        for (int i = 0; i < pnj[dateIndex].dialogue.grouping[sentenceIndex].type.Length; i++)
-        {
-            Debug.Log(dateIndex);
-            Debug.Log(sentenceIndex);
-            Debug.Log(wordIndex);
+        var types = pnj[dateIndex].dialogue.grouping[sentenceIndex].type;
 
-            Debug.Log(pnj[dateIndex].dialogue.grouping[sentenceIndex].type[i].word[wordIndex]);
-            currentWords[i] = pnj[dateIndex].dialogue.grouping[sentenceIndex].type[i].word[wordIndex];
+        var pool = new List<int>();
+        for (int i = 0; i < types.Length; i++) pool.Add(i);
+
+        for (int i = 0; i < types.Length; i++)
+        {
+            int pick = UnityEngine.Random.Range(0, pool.Count);
+            int typeIndex = pool[pick];
+            pool.RemoveAt(pick);
+
+            currentWords[i] = types[typeIndex].word[wordIndex];
+            wordsScores[i] = typeIndex - 1;
         }
 
         wordLetters = currentWords[0].ToCharArray();

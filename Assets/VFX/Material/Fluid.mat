@@ -70,7 +70,7 @@ Material:
     - _NoiseScale: 2
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Score: 0.08
+    - _Score: 0
     - _SparklesShiningSpeed: 1.1
     - _StarsSpeed: 1
     - _tilingX: 0.12

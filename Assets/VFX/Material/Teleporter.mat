@@ -47,8 +47,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _ApparitionBorderSize: 0.87
-    - _ApparitionProgression: 1.347086
-    - _Appear: 1
+    - _ApparitionProgression: -1.85
+    - _Appear: 0
     - _AuraCurve: 26.78
     - _AuraPower: 7.73
     - _Main_Alpha: 0.5

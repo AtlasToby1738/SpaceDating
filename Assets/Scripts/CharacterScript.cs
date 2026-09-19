@@ -7,17 +7,16 @@ public class CharacterScript : MonoBehaviour
     public SpriteRenderer image;
     [SerializeField] private Animator animator;
     [SerializeField] private float emotionTime = 1.5f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Appearing apparingScript;
+
     void Start()
     {
-        image = GetComponentInChildren<SpriteRenderer>(true);
+        if (image == null)
+            image = GetComponentInChildren<SpriteRenderer>(true);
+
         image.sprite = attributes.sprites[1];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        image.enabled = false;
+        image.gameObject.SetActive(true);
     }
 
     public void InitializeCharacter()
@@ -25,13 +24,13 @@ public class CharacterScript : MonoBehaviour
         attributes.score = 0;
         image.sprite = attributes.sprites[1];
         image.enabled = true;
+        apparingScript.CharacterAppearing();
     }
     public void RemoveCharacter()
     {
-        image.sprite = attributes.sprites[1];
-        image.enabled = true;
+        image.enabled = false;
     }
-    public string GetName() {return attributes.name;}
+    public string GetName() {return attributes.charaName;}
     public string[] GetWordTrio(int groupingIndex, int wordIndex, ref bool endOfDate, ref bool endOfSentence)
     {
         string[] trio =

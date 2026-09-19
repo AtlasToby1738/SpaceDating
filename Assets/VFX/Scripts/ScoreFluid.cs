@@ -12,22 +12,39 @@ public class ScoreFluid : MonoBehaviour
     private float maxScore;
     [SerializeField]
     private float length;
-
+    [SerializeField]
     private AnimationCurve curve;
-
+    [SerializeField]
     private float _currentScore = 0;
+    [SerializeField]
     private float _scoreFraction;
+
     void OnEnable()
     {
-        _scoreFraction = length / maxScore;
-        testLahbibe.instance.Score += ChangeScore;
+        fluidMaterial.SetFloat("_Score", 0);
+        _scoreFraction = length / (maxScore * 2);
+        testLahbibe.Score += ChangeScore;
+        testLahbibe.OnChangeDate += Reseting;
+    }
+
+    private void OnDisable()
+    {
+        fluidMaterial.SetFloat("_Score", 0);
+        _scoreFraction = length / (maxScore * 2);
+        testLahbibe.Score -= ChangeScore;
+        testLahbibe.OnChangeDate -= Reseting;
+    }
+
+    private void Reseting()
+    {
+        StartCoroutine(ResetingFluid());
     }
 
     private void ChangeScore(int difference)
     {
-        Debug.Log("JE SUIS LA BARRE JAI RECU" + difference.ToString());
-        if (difference > 0) IncreasingScore();
-        else if (difference < 0) DecreasingScore();
+        Debug.Log(_currentScore);
+        if (difference > 0) StartCoroutine(IncreasingScore());
+        else if (difference < 0) StartCoroutine(DecreasingScore());
     }
 
     public IEnumerator IncreasingScore()
@@ -42,6 +59,7 @@ public class ScoreFluid : MonoBehaviour
             yield return null;
         }
         _currentScore += _scoreFraction;
+        Debug.Log(_currentScore);
     }
     public IEnumerator DecreasingScore()
     {
@@ -54,7 +72,8 @@ public class ScoreFluid : MonoBehaviour
             fluidMaterial.SetFloat("_Score", curve.Evaluate(_age));
             yield return null;
         }
-        _currentScore += _scoreFraction;
+        _currentScore -= _scoreFraction;
+        Debug.Log(_currentScore);
     }
     public IEnumerator ResetingFluid()
     {

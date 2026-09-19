@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,10 +24,8 @@ public class Teleporter : MonoBehaviour
     [SerializeField]
     private AnimationCurve heartCurve;
 
-    private void Start()
-    {
-        StartCoroutine(AppearingCoroutine());
-    }
+    public event Action OnTeleportArrived;
+
     public void CheckTeleporter()
     {
         if (_hasAlreadyAppeared)
@@ -40,7 +39,7 @@ public class Teleporter : MonoBehaviour
     }
     public IEnumerator AppearingCoroutine()
     {
-        
+        Debug.Log("AppearingCoroutine démarrée, appelée depuis : " + System.Environment.StackTrace);
         int _i = 0;
         teleporterMaterial.SetFloat("_Appear", 1);
         float _age = 0;
@@ -77,6 +76,8 @@ public class Teleporter : MonoBehaviour
             yield return null;
         }
         _hasAlreadyAppeared = true;
+
+        OnTeleportArrived?.Invoke();
 
         StartCoroutine(DisappearingCoroutine());
     }
