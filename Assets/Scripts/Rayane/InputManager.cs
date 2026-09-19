@@ -1,10 +1,11 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
     public static InputManager instance { get; private set; }
-    [SerializeField] private char input = '.';
+    public event Action<char> OnType;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
@@ -18,10 +19,11 @@ public class InputManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            if (Input.inputString.Length == 0 || input == Input.inputString[0]) return;
+            char input;
+            if (Input.inputString.Length == 0) return;
             input = Input.inputString[0];
+            OnType?.Invoke(input);
             Debug.Log(input);
         }
-        else input = '.';
     }
 }
