@@ -287,6 +287,7 @@ public class testLahbibe : MonoBehaviour
     private void ChangeDate()
     {
         StartCoroutine(teleporter.AppearingCoroutine());
+        pnj[dateIndex].GoAway();
     }
 
     private void SetDate()

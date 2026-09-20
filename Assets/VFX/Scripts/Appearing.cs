@@ -13,7 +13,7 @@ public class Appearing : MonoBehaviour
     private Material material;
     public IEnumerator CharacterAppearing()
     {
-        material.SetFloat("_verticaleY", 0);
+        material.SetFloat("_pisitiveY", 1);
 
         float _age = 0;
         while (_age < 1)
@@ -27,7 +27,7 @@ public class Appearing : MonoBehaviour
 
     public IEnumerator CharacterDisappearing()
     {
-        material.SetFloat("_verticaleY", 1);
+        material.SetFloat("_pisitiveY", 0);
 
         float _age = 0;
         while(_age<1)
