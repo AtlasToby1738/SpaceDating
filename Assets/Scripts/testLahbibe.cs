@@ -200,10 +200,9 @@ public class testLahbibe : MonoBehaviour
     {
         text.text += _letter;
         canType = false;
-        foreach (var image in hiddenWord[currentWordIndex].imageArray)
-        {
-            image.color = patchColors[1];
-        }
+
+        TextMeshProUGUI _currentWord = hiddenWord[currentWordIndex].GetComponent<TextMeshProUGUI>();
+        _currentWord.color = patchColors[1];
         AddOrSubTime(missMaluse);
 
         Invoke(nameof(StopMissEffect), timeDelay);
@@ -213,12 +212,8 @@ public class testLahbibe : MonoBehaviour
     {
         text.text = text.text.Remove(text.text.Length - 1, 1);
 
-        cam.backgroundColor = Color.white;
-        foreach (var image in hiddenWord[currentWordIndex].imageArray)
-        {
-            image.color = patchColors[0];
-        }
-
+        TextMeshProUGUI _currentWord = hiddenWord[currentWordIndex].GetComponent<TextMeshProUGUI>();
+        _currentWord.color = patchColors[0];
         canType = true;
     }
 
@@ -300,8 +295,6 @@ public class testLahbibe : MonoBehaviour
 
     private void HandleTeleportArrived()
     {
-        Debug.Log($"HandleTeleportArrived appelé, dateIndex avant = {dateIndex}");
-
         if (isFirstReveal)
         {
             isFirstReveal = false;
@@ -314,9 +307,7 @@ public class testLahbibe : MonoBehaviour
             return;
         }
 
-        pnj[dateIndex].RemoveCharacter();
         pnj[dateIndex].attributes.score = score;
-        Debug.Log(score);
         score = 0;
 
         dateIndex++;
@@ -325,7 +316,7 @@ public class testLahbibe : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             return;
         }
-
+        pnj[dateIndex - 1].GoAway();
         pnj[dateIndex].InitializeCharacter();
         OnChangeDate?.Invoke();
 

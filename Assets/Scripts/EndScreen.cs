@@ -19,7 +19,7 @@ public class EndScreen : MonoBehaviour
         for(int Increment = 0; Increment < attributes.Length; Increment++)
         {
             scoreTexts[Increment].text = attributes[Increment].score.ToString();
-            if (attributes[Increment].score >= 0)
+            if (attributes[Increment].score > 0)
             {
                 characterImages[Increment].gameObject.SetActive(true);
                 heartImages[Increment].sprite = heartSprite;

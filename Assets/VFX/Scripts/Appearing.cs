@@ -11,9 +11,12 @@ public class Appearing : MonoBehaviour
     private AnimationCurve disappearingCurve;
     [SerializeField]
     private Material material;
+    [SerializeField]
+    private CharacterScript pnj;
+
     public IEnumerator CharacterAppearing()
     {
-        material.SetFloat("_pisitiveY", 1);
+        material.SetFloat("_positiveY", 1);
 
         float _age = 0;
         while (_age < 1)
@@ -27,7 +30,7 @@ public class Appearing : MonoBehaviour
 
     public IEnumerator CharacterDisappearing()
     {
-        material.SetFloat("_pisitiveY", 0);
+        material.SetFloat("_positiveY", 0);
 
         float _age = 0;
         while(_age<1)
@@ -37,5 +40,7 @@ public class Appearing : MonoBehaviour
 
         yield return null;
         }
+
+        pnj.RemoveCharacter();
     }
 }

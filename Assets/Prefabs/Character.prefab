@@ -228,3 +228,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   material: {fileID: 2100000, guid: a4dafdb29a96cb041b5a69a99031b91e, type: 2}
+  pnj: {fileID: 5159355233991069734}
