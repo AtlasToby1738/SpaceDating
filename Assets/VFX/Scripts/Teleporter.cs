@@ -39,7 +39,6 @@ public class Teleporter : MonoBehaviour
     }
     public IEnumerator AppearingCoroutine()
     {
-        Debug.Log("AppearingCoroutine démarrée, appelée depuis : " + System.Environment.StackTrace);
         int _i = 0;
         teleporterMaterial.SetFloat("_Appear", 1);
         float _age = 0;
